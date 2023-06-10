@@ -1,0 +1,14 @@
+import express from "express";
+const router = express.Router();
+import { getAllUsers, getUserDetails, register } from "../controllers/user.js";
+router.get("/all",getAllUsers);
+router.post("/new",register);
+router.get("/userId/:id",getUserDetails)
+export default router;
+// router.route("/userId/:id"). get(details).put(details).delete(details);
+// Both of these statements are equivalent
+// router.get("/userId/:id",details);
+// router.put("/userId/:id",details);
+// router.delete("/userId/:id",details);
+//set NODE_ENV=Development && nodemon server.js
+set NODE_ENV=Production && node server.js
