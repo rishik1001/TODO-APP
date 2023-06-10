@@ -12,3 +12,4 @@ export default router;
 // router.delete("/userId/:id",details);
 //set NODE_ENV=Development && nodemon server.js
 set NODE_ENV=Production && node server.js
+mongodb+srv://frostbot:viratanushka@atlascluster.hsknme4.mongodb.net/

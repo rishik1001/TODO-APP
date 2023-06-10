@@ -2,7 +2,13 @@ import user from "../models/user.js"
 import bcrypt from "bcrypt";
 import { sendCookie } from "../utils/features.js";
 import jwt from "jsonwebtoken";
-export const getAllUsers = async (req, res) => { }
+export const getAllUsers = async (req, res) => {
+    const userinfo = await user.find({});
+
+    res.status(200).json({
+        users: userinfo
+    })
+} 
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
     let userinfo = await user.findOne({ email });
@@ -31,7 +37,7 @@ export const login = async (req, res) => {
     }
     const isMatch = await bcrypt.compare(password, userinfo.password);
     if (!isMatch) {
-        res.status(404).json({
+        return  res.status(404).json({
             success: false,
             message: "Wrong Password"
         })
