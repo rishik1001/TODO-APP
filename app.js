@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(cors({
     origin: [process.env.FRONTEND_URI],
     methods: ["GET","POST","PUT","DELETE"],
-    withCredentials: true //if false then response headers will not be sent
+    credentials: true //if false then response headers will not be sent
 }))
 
 app.use("/api/v1/users",userRouter); //for saying we are using api
